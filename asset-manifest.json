@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-intro-platzi/static/css/main.f8e6f1b0.css",
-    "main.js": "/react-intro-platzi/static/js/main.6f900e48.js",
-    "index.html": "/react-intro-platzi/index.html",
-    "static/media/delete.svg": "/react-intro-platzi/static/media/delete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
-    "static/media/check.svg": "/react-intro-platzi/static/media/check.af03c9a6a0411e40578874e6f00e807b.svg",
-    "static/media/edit.svg": "/react-intro-platzi/static/media/edit.1ebb047b0a2cfb8fbf55cd69ccb86f57.svg",
-    "main.f8e6f1b0.css.map": "/react-intro-platzi/static/css/main.f8e6f1b0.css.map",
-    "main.6f900e48.js.map": "/react-intro-platzi/static/js/main.6f900e48.js.map"
+    "main.css": "/todo-react-router-platzi/static/css/main.f8e6f1b0.css",
+    "main.js": "/todo-react-router-platzi/static/js/main.1116933a.js",
+    "index.html": "/todo-react-router-platzi/index.html",
+    "static/media/delete.svg": "/todo-react-router-platzi/static/media/delete.d9c7e0eeb3f573572e1521b7b69ed33e.svg",
+    "static/media/check.svg": "/todo-react-router-platzi/static/media/check.af03c9a6a0411e40578874e6f00e807b.svg",
+    "static/media/edit.svg": "/todo-react-router-platzi/static/media/edit.1ebb047b0a2cfb8fbf55cd69ccb86f57.svg",
+    "main.f8e6f1b0.css.map": "/todo-react-router-platzi/static/css/main.f8e6f1b0.css.map",
+    "main.1116933a.js.map": "/todo-react-router-platzi/static/js/main.1116933a.js.map"
   },
   "entrypoints": [
     "static/css/main.f8e6f1b0.css",
-    "static/js/main.6f900e48.js"
+    "static/js/main.1116933a.js"
   ]
 }
