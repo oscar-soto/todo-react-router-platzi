@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
+const newTodoId = (todoList) => {
+  // return crypto.randomUUID();
+  // const idList = todoList.map((todo) => todo.id);
+  // const idMax = Math.max(...idList);
+  // console.log(idMax)
+  // return idMax + 1;
+  return Date.now().toString(16)
+};
+
 const useTodos = () => {
   // Local Storage
   const {
@@ -9,7 +18,7 @@ const useTodos = () => {
     loading,
     error,
     sincronizeItem: sincronizeTodos,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorage('TODOS_V2', []);
 
   // States
   const [searchValue, setSearchValue] = useState('');
@@ -26,27 +35,33 @@ const useTodos = () => {
     return todoText.includes(searchText);
   });
 
-  const onComplete = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
-  };
-
   const onAddTodo = (text) => {
+    const id = newTodoId(todos);
     const newTodos = [...todos];
     newTodos.push({
       text,
       completed: false,
+      id,
     });
     saveTodos(newTodos);
   };
 
-  const onDelete = (text) => {
+  const onComplete = (id) => {
     const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    const todoIndex = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[todoIndex].completed = true;
+    saveTodos(newTodos);
+  };
+
+  const onDelete = (id) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.id === id);
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
+  };
+
+  const onEdit = (text) => {
+    console.log('Hola mundo');
   };
 
   const states = {
@@ -57,21 +72,22 @@ const useTodos = () => {
     searchValue,
     searchedTodos,
     openModal,
-  }
+  };
 
   const stateUpdaters = {
-
     setSearchValue,
     setOpenModal,
     onComplete,
     onDelete,
     onAddTodo,
     sincronizeTodos,
-  }
+    onEdit,
+  };
 
   return {
     states,
-    stateUpdaters
+    stateUpdaters,
   };
 };
+
 export default useTodos;

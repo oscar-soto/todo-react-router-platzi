@@ -5,8 +5,8 @@ export const useStorageListener = (sincronize) => {
 
   useEffect(() => {
     const onChange = (change) => {
-      if (change.key === 'TODOS_V1') {
-        console.log('Hubo cambios en TODOS_V1');
+      if (change.key === 'TODOS_V2') {
+        console.log('Hubo cambios en TODOS_V2');
 
         setStorageChange(true);
       }

@@ -7,9 +7,9 @@ import { TodoItem } from '@/UI/TodoItem';
 import { TodosError } from '@/UI/TodosError';
 import { TodosLoading } from '@/UI/TodosLoading';
 import { EmptyTodos } from '@/UI/EmptyTodos';
-import { TodoForm } from '@/UI/TodoForm';
-import { CreateTodoButton } from '@/UI/CreateTodoButton';
-import { Modal } from '@/UI/Modal';
+// import { TodoForm } from '@/UI/TodoForm';
+// import { CreateTodoButton } from '@/UI/CreateTodoButton';
+// import { Modal } from '@/UI/Modal';
 import { ChangeAlert } from '@/UI/ChangeAlert';
 
 function HomePage() {
@@ -22,15 +22,16 @@ function HomePage() {
     totalTodos,
     searchValue,
     searchedTodos,
-    openModal,
+    // openModal,
   } = states;
 
   const {
-    setOpenModal,
+    // setOpenModal,
     setSearchValue,
     onComplete,
     onDelete,
-    onAddTodo,
+    // onAddTodo,
+    onEdit,
     sincronizeTodos,
   } = stateUpdaters;
 
@@ -63,22 +64,24 @@ function HomePage() {
         )}
         render={(todo) => (
           <TodoItem
-            key={todo.text}
+            key={todo.id}
+            id={todo.id}
             text={todo.text}
             completed={todo.completed}
+            onEdit={() => onEdit(todo.text)}
             onDelete={() => onDelete(todo.text)}
             onComplete={() => onComplete(todo.text)}
           />
         )}
       />
 
-      {!!openModal && (
+      {/* {!!openModal && (
         <Modal>
           <TodoForm onAddTodo={onAddTodo} setOpenModal={setOpenModal} />
         </Modal>
-      )}
+      )} */}
 
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      {/* <CreateTodoButton setOpenModal={setOpenModal} /> */}
 
       <ChangeAlert sincronize={sincronizeTodos} />
     </>
