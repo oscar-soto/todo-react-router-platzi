@@ -62,7 +62,11 @@ function HomePage() {
             id={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onEdit={() => navigate(`/edit/${todo.id}`)}
+            onEdit={() =>
+              navigate(`/edit/${todo.id}`, {
+                state: { todo },
+              })
+            }
             onDelete={() => onDelete(todo.text)}
             onComplete={() => onComplete(todo.text)}
           />

@@ -7,7 +7,7 @@ const newTodoId = (todoList) => {
   // const idMax = Math.max(...idList);
   // console.log(idMax)
   // return idMax + 1;
-  return Date.now().toString(16)
+  return Date.now().toString(16);
 };
 
 const useTodos = () => {
@@ -46,6 +46,18 @@ const useTodos = () => {
     saveTodos(newTodos);
   };
 
+  const getTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo)
+    return todos[todoIndex];
+  };
+
+  const onEdit = ({ id, newText }) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[todoIndex].text = newText;
+    saveTodos(newTodos);
+  };
+
   const onComplete = (id) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.id === id);
@@ -60,28 +72,25 @@ const useTodos = () => {
     saveTodos(newTodos);
   };
 
-  const onEdit = (text) => {
-    console.log('Hola mundo');
-  };
-
   const states = {
-    loading,
-    error,
     completedTodos,
-    totalTodos,
-    searchValue,
-    searchedTodos,
+    error,
+    loading,
     openModal,
+    searchedTodos,
+    searchValue,
+    totalTodos,
+    getTodo,
   };
 
   const stateUpdaters = {
-    setSearchValue,
-    setOpenModal,
+    onAddTodo,
     onComplete,
     onDelete,
-    onAddTodo,
-    sincronizeTodos,
     onEdit,
+    setOpenModal,
+    setSearchValue,
+    sincronizeTodos,
   };
 
   return {

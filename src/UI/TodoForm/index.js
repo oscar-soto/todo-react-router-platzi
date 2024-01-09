@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import './TodoForm.css';
 
-function TodoForm({ setOpenModal, submitEvent, label, submitText }) {
+function TodoForm({ submitEvent, label, submitText, defaultTodoText }) {
   const navigate = useNavigate();
-  const [newTodoValue, setNewTodoValue] = useState('');
+  const [newTodoValue, setNewTodoValue] = useState(defaultTodoText || '');
 
   const onChange = (e) => {
     setNewTodoValue(e.target.value);
@@ -13,8 +13,8 @@ function TodoForm({ setOpenModal, submitEvent, label, submitText }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     const withoutSpace = newTodoValue.trim();
+    
     if (withoutSpace.length > 1) {
       submitEvent(newTodoValue);
       navigate('/');
